@@ -92,12 +92,12 @@
 # print(b)
 # print(a)
 
-item = {
-    "item_no": "1001",
-    "description": "Hex Bolt M8",
-    "quantity": 250,
-    "location": "Bin A3"
-}
+# item = {
+#     "item_no": "1001",
+#     "description": "Hex Bolt M8",
+#     "quantity": 250,
+#     "location": "Bin A3"
+# }
 
 # print(item.items())
 # print(item.keys())
@@ -117,7 +117,55 @@ item = {
 #     print(f"{key}:{value}")
 
 #building dictionary dynamically
-fields = ["item_no", "quantity", "cost"]
-values = ["10001M", 250, 0.45]
-built = dict(zip(fields, values))
-print(built)
+# fields = ["item_no", "quantity", "cost"]
+# values = ["10001M", 250, 0.45]
+# built = dict(zip(fields, values))
+# print(built)
+
+
+#functions
+
+# def check_stocks(item_name, quantity):
+#     print(f"checking {item_name} : {quantity} units")
+
+# check_stocks("ITEM1001", 100)
+
+# def get_status(quantity):
+#     if quantity == 0:
+#         return "OUT OF STOCK"
+#     elif quantity < 50:
+#         return "LOW STOCK"
+#     else:
+#         return "AVAILABLE"
+
+# status = get_status(100)
+# status1 = get_status(0)
+# print(status)
+# print(status1)
+
+inventory = [
+    {"item_no": "1001", "description": "Hex Bolt M8", "quantity": 250},
+    {"item_no": "1002", "description": "Nut M8", "quantity": 30},
+    {"item_no": "1003", "description": "Washer M8", "quantity": 420},
+    {"item_no": "1004", "description": "Screw M6", "quantity": 15},
+]
+
+def get_status(quantity, reorder_stock=50):
+    if quantity == 0:
+        return "OUT OF STOCK"
+    elif quantity < reorder_stock:
+        return "LOW STOCK"
+    else:
+        return "AVAILABLE"
+    
+def print_inventory_report(inventory):
+    print("="*40)
+    print("Inventory Report")
+    print("="*40)
+
+    for item in inventory:
+        status = get_status(item["quantity"])
+        print(f"{item['description']: <20} {item['quantity']:>5} - {status}")
+    print("="*40)
+
+print_inventory_report(inventory)
