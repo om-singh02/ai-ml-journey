@@ -203,16 +203,16 @@
 # get_quantity(item3, "quantity")
 # get_quantity(item4, "quantity")
 
-def process_item(item):
-    try:
-        quantity = item["quantity"]
-        status = "LOW STOCK" if quantity < 50 else "Ok"
-    except KeyError:
-        print("Quantity filed missing in this item")
-    else:
-        print(f"{item['item_no']}: {quantity} -- {status} ")
-    finally:
-        print(f"The item is processed")
+# def process_item(item):
+#     try:
+#         quantity = item["quantity"]
+#         status = "LOW STOCK" if quantity < 50 else "Ok"
+#     except KeyError:
+#         print("Quantity filed missing in this item")
+#     else:
+#         print(f"{item['item_no']}: {quantity} -- {status} ")
+#     finally:
+#         print(f"The item is processed")
 
-process_item({"item_no": 1001, "quantity": 250})
-process_item({"item_no": 1002})
+# process_item({"item_no": 1001, "quantity": 250})
+# process_item({"item_no": 1002})
